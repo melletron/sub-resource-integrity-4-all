@@ -101,7 +101,7 @@ The first thing we need to do is find out if your browser natively supports sub 
  and the JavaScript for JavaScript checking just under the script tags ```<script>SRI4ALL.js();</script>``` inside the ```<body>```
  
  
- ### full example 
+### full example 
  
  ```html
 <!doctype html>

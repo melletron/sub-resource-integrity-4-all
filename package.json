@@ -1,0 +1,39 @@
+{
+  "name": "sub-resource-itegrity-4-all",
+  "version": "0.0.1",
+  "description": "This is an implementation of integrity checks, so we can start doing subresource integrity checks on browsers that don't yet support it.",
+  "main": "sri-check-polyfill.min.js",
+  "scripts": {
+    "test": "wdio wdio.conf.js",
+    "build": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "tbc"
+  },
+  "keywords": [
+    "sri",
+    "subresource",
+    "integrity",
+    "sha256"
+  ],
+  "author": "Melle Hofman",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.4.0",
+    "babel-preset-es2015-ie": "^6.7.0",
+    "chai": "^3.5.0",
+    "http-server": "^0.10.0",
+    "js-sha256": "^0.5.0",
+    "mocha": "^3.3.0",
+    "sauce-connect-launcher": "^1.2.2",
+    "wdio-mocha-framework": "^0.5.10",
+    "wdio-sauce-service": "^0.4.0",
+    "wdio-spec-reporter": "^0.1.0",
+    "webdriverio": "^4.8.0",
+    "webpack": "^2.5.1"
+  }
+}

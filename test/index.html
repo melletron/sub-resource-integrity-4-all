@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <script src="data:text/javascript,document.querySelector('html').className += ' sri-check';"
+            integrity="sha256-x"></script>
+
+    <title>SRI check</title>
+
+    <link rel="stylesheet" integrity="sha256-x"
+          data-sri-href="negative.css"
+          data-integrity="x">
+
+    <!--
+        In Firefox this wins....
+        <link rel="stylesheet" href="negative.css"/>
+     -->
+
+    <link rel="stylesheet" href="positive.css"
+          integrity="sha256-DroBL/a1rdlbFF1lBG9alTNaqVY98/eiuesdqBBVDyo="
+          data-integrity="0eba012ff6b5add95b145d65046f5a95335aa9563df3f7a2b9eb1da810550f2a"
+          data-sri-href="positive.css"/>
+
+    <link rel="stylesheet" integrity="sha256-x"
+          data-sri-href="negative.css"
+          data-integrity="x">
+
+
+
+    <script src="../dist/css-check.js">
+
+    </script>
+</head>
+<body>
+
+<script>
+    if (/sri-check/.test(document.querySelector('html').className)) {
+        document.write('<h1>SRI Fallback used</h1>');
+    } else {
+        document.write('<h1>Browser native SRI used</h1>');
+    }
+</script>
+
+<p id="backgroundcolor"></p>
+
+
+<h2 id="positive">FAIL</h2>
+<script data-sri-src="positive.js"
+        data-integrity="75cd0af463908d09e448cc3f4d81054402511cad2dccb449915517640da0cf48"
+        integrity="sha256-dc0K9GOQjQnkSMw/TYEFRAJRHK0tzLRJkVUXZA2gz0g="></script>
+
+<h2 id="negative">PASS</h2>
+<script data-sri-src="negative.js"
+        data-integrity="a4830902634be8ae5704e2744ca19a68841b2efe2475399c8fea0cfa3aeba641"
+        integrity="sha256-pIMJAmNL6K5XBOJ0TKGaaIQbLv4kdTmcj+oM+jrrpkE="></script>
+
+<script data-sri-src="angular.js"
+        data-integrity="21d37cbe3ac3ee62c4a4d7aa59bcfef2b64808908bf3d287f348b486ba2287e6"
+        integrity="sha256-IdN8vjrD7mLEpNeqWbz+8rZICJCL89KH80i0hroih+Y="></script>
+
+<script data-sri-src="ngStorage.js"
+        data-integrity="ff09152dbaf8b56a137e70b2f030712eded9fe4e3323e296f62460c3beca9586"
+        integrity="sha256-/wkVLbr4tWoTfnCy8DBxLt7Z/k4zI+KW9iRgw77KlYY="></script>
+
+<script data-sri-src="moment.js"
+        data-integrity="a73b76b56d5551336e1ae5503333cad300b8bc493046b23a0f2326d5a199c62c"
+        integrity="sha256-pzt2tW1VUTNuGuVQMzPK0wC4vEkwRrI6DyMm1aGZxiw="></script>
+
+<script src="../dist/js-check.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(function () {
+            document.querySelector("#backgroundcolor").innerHTML = getComputedStyle(document.body).backgroundColor;
+        }, 800);
+    });
+</script>
+</body>
+</html>

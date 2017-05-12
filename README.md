@@ -1,6 +1,49 @@
 # Sub Resource Integrity 4 All
 This package provides a way to start benefiting from sub resource integrity checks right now.
 
+## Quickstart
+### Install
+```npm i sub-resource-integrity-4-all```
+
+### Implement
+#### As ES6 module
+```import "sub-resource-integrity-4-all"```
+#### As script tag
+```html
+<head>
+<!-- this is a good place -->
+<script src="dist/sri4all.nl"></script>
+</head>
+```
+#### Usage
+Add css links
+```html
+<!-- make sure you provide the correct integrity attribute (native and sri4all) -->
+<link rel="stylesheet" integrity="sha256-DroBL/a1rdlbFF1lBG9alTNaqVY98/eiuesdqBBVDyo="
+          data-integrity="0eba012ff6b5add95b145d65046f5a95335aa9563df3f7a2b9eb1da810550f2a"
+          data-sri-href="positive.css"/>
+    
+    <!-- directly below the last CSS tag -->
+    <script>
+        SRI4ALL.css();
+    </script>
+```
+
+Add script tags
+```html
+<!-- make sure you provide the correct integrity attributes (native and sri4all) -->
+<script data-sri-src="moment.js"
+        data-integrity="a73b76b56d5551336e1ae5503333cad300b8bc493046b23a0f2326d5a199c62c"
+        integrity="sha256-pzt2tW1VUTNuGuVQMzPK0wC4vEkwRrI6DyMm1aGZxiw="></script>
+
+<!-- directly below the last script tag -->
+<script>
+    SRI4ALL.js();
+</script>
+
+```
+
+
 ## What is sub resource integrity?
 Whenever you build a programmatic asset for your front end, a CSS or a JavaScript you often include
 that to your web application through a link tag or a script tag. When you do, you expect that CSS or JavaScript
@@ -159,6 +202,13 @@ The solution is tested on:
 * iOS 9.2 / Simulator
 * iOS 10.1 / Simulator
 
+As a test suite I create a small web page that validates the functionality of SRI4ALL. It is tested in full integration.
+People that know me personally may wonder why I don't write unit tests for this code, and why do I test it in full integration
+if I always say that integrated tests are a scam.
+Well, this is a piece of code that specifically alters the way a browser operates, as such full integration is the optimum isolation.
+As for the unit test, the idea is to hide the code as much away from any interface as possible so no malitious code can maniplate it.
+So making it impossible to unit test is actually a goal to pursue here.
+
 ## Can I contribute?
 Yes please!
 
@@ -168,3 +218,5 @@ I know there are some design issues. Firstly, it will not work nice if you mix s
 Secondly, the css-checker will load the sha256 library and assign it to the window even if the browser natively supports integrity checking.
 
 Besides these things, it would be nice if we could have a gulp, webpack, jspm plugin that creates the hashes for you build time.
+
+So feel free to discuss, fork, use and create pull request.

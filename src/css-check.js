@@ -59,6 +59,11 @@ export default sha256 => {
                     sheets[index] = this.responseText;
                 } else {
                     /**
+                     * if the hash doesn't match it means the code has been compromised
+                     * we want to clear up the RAM by removing the node
+                     */
+                    styleSheet.parentNode.removeChild(styleSheet);
+                    /**
                      * This format of the error message is the same one Google provides its error messages
                      * We use a timeout here so the error is called after the stack is cleared and we keep
                      *  on collecting the trusted css.

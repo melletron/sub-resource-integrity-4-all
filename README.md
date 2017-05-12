@@ -49,8 +49,10 @@ The first thing we need to do is find out if your browser natively supports sub 
  These are used to verify the integrity of your resource. In case the browser supports it natively, it uses that for verification, else
  it uses the fallback. The fallback is a [Secure Hash Algorithm 256 hash](https://en.wikipedia.org/wiki/SHA-2) of the content of your asset.
  
- You then want to inject the JavaScript for CSS checking just under the CSS tags ```<script src="../dist/css-check.js">``` in the ```<head>```
- and the JavaScript for JavaScript checking just under the script tags ```<script src="../dist/js-check.js"></script>``` inside the ```<body>```
+ This module is currently available in the global namespace as SRI4ALL, so you want to include sri4all.js ```<script src="../dist/sri4all.min.js"></script>``` quite early in your HTML document.
+ 
+ You then want to inject the JavaScript for CSS checking just under the CSS tags ```<script>SRI4ALL.css();</script>``` in the ```<head>```
+ and the JavaScript for JavaScript checking just under the script tags ```<script>SRI4ALL.js();</script>``` inside the ```<body>```
  
  ### full example 
  ```html
@@ -59,6 +61,7 @@ The first thing we need to do is find out if your browser natively supports sub 
 <head>
     <script src="data:text/javascript,document.querySelector('html').className += ' sri-check';"
             integrity="sha256-x"></script>
+    <script src="../dist/sri4all.min.js"></script>
 
     <title>SRI check</title>
 
@@ -71,8 +74,7 @@ The first thing we need to do is find out if your browser natively supports sub 
         <link rel="stylesheet" href="negative.css"/>
      -->
 
-    <link rel="stylesheet" href="positive.css"
-          integrity="sha256-DroBL/a1rdlbFF1lBG9alTNaqVY98/eiuesdqBBVDyo="
+    <link rel="stylesheet" integrity="sha256-DroBL/a1rdlbFF1lBG9alTNaqVY98/eiuesdqBBVDyo="
           data-integrity="0eba012ff6b5add95b145d65046f5a95335aa9563df3f7a2b9eb1da810550f2a"
           data-sri-href="positive.css"/>
 
@@ -80,10 +82,8 @@ The first thing we need to do is find out if your browser natively supports sub 
           data-sri-href="negative.css"
           data-integrity="x">
 
-
-
-    <script src="../dist/css-check.js">
-
+    <script>
+        SRI4ALL.css();
     </script>
 </head>
 <body>
@@ -121,7 +121,9 @@ The first thing we need to do is find out if your browser natively supports sub 
         data-integrity="a73b76b56d5551336e1ae5503333cad300b8bc493046b23a0f2326d5a199c62c"
         integrity="sha256-pzt2tW1VUTNuGuVQMzPK0wC4vEkwRrI6DyMm1aGZxiw="></script>
 
-<script src="../dist/js-check.js"></script>
+<script>
+    SRI4ALL.js();
+</script>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {

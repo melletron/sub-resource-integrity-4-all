@@ -1,9 +1,4 @@
-import "babel-polyfill";
-import sha256 from "js-sha256";
-
-//We need this in the js-check as well, but I expect you to load css-check first... so no need to bundle it twice
-window.sha256 = sha256;
-(function () {
+export default sha256 => {
     "use strict";
 
     /**
@@ -34,7 +29,6 @@ window.sha256 = sha256;
         let called = styleSheets.length;
 
         styleSheets.forEach((styleSheet, index) => {
-
 
 
             const req = new XMLHttpRequest();
@@ -88,4 +82,4 @@ window.sha256 = sha256;
         styleSheets.forEach(styleSheet => styleSheet.setAttribute('href', styleSheet.getAttribute('data-sri-href')));
     }
 
-}());
+};

@@ -1,6 +1,4 @@
-// import "babel-polyfill";
-// import sha256 from "js-sha256";
-(function () {
+export default sha256 => {
     "use strict";
     // Get all the JavaScript elements that have a sub resource integrity check source attribute
     const scriptTags = [...document.querySelectorAll('script[data-sri-src]')];
@@ -130,4 +128,4 @@
             document.write(script);
         });
     }
-}());
+};

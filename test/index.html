@@ -1,8 +1,9 @@
 <!doctype html>
-<html>
+<html class="sri-check">
 <head>
     <script src="data:text/javascript,document.querySelector('html').className += ' sri-check';"
             integrity="sha256-x"></script>
+    <script src="../dist/sri4all.min.js"></script>
 
     <title>SRI check</title>
 
@@ -15,8 +16,7 @@
         <link rel="stylesheet" href="negative.css"/>
      -->
 
-    <link rel="stylesheet" href="positive.css"
-          integrity="sha256-DroBL/a1rdlbFF1lBG9alTNaqVY98/eiuesdqBBVDyo="
+    <link rel="stylesheet" integrity="sha256-DroBL/a1rdlbFF1lBG9alTNaqVY98/eiuesdqBBVDyo="
           data-integrity="0eba012ff6b5add95b145d65046f5a95335aa9563df3f7a2b9eb1da810550f2a"
           data-sri-href="positive.css"/>
 
@@ -24,10 +24,8 @@
           data-sri-href="negative.css"
           data-integrity="x">
 
-
-
-    <script src="../dist/css-check.js">
-
+    <script>
+        SRI4ALL.css();
     </script>
 </head>
 <body>
@@ -65,7 +63,9 @@
         data-integrity="a73b76b56d5551336e1ae5503333cad300b8bc493046b23a0f2326d5a199c62c"
         integrity="sha256-pzt2tW1VUTNuGuVQMzPK0wC4vEkwRrI6DyMm1aGZxiw="></script>
 
-<script src="../dist/js-check.js"></script>
+<script>
+    SRI4ALL.js();
+</script>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {

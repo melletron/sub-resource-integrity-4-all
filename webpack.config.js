@@ -3,12 +3,14 @@ const path = require('path');
 
 const config = {
     entry: {
+        "sri4all": "./src/sri4all.js",
+        "sha256": "js-sha256",
         "css-check": "./src/css-check.js",
         "js-check": "./src/js-check.js"
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js'
+        filename: '[name].min.js'
     },
     module: {
         rules: [

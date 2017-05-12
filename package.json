@@ -1,6 +1,6 @@
 {
   "name": "sub-resource-itegrity-4-all",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This is an implementation of integrity checks, so we can start doing subresource integrity checks on browsers that don't yet support it.",
   "main": "dist/sri4all.min.js",
   "scripts": {

@@ -6,8 +6,10 @@ This package provides a way to start benefiting from sub resource integrity chec
 ```npm i sub-resource-integrity-4-all```
 
 ### Implement
+
 #### As ES6 module
 ```import "sub-resource-integrity-4-all"```
+
 #### As script tag
 ```html
 <head>
@@ -15,6 +17,7 @@ This package provides a way to start benefiting from sub resource integrity chec
 <script src="dist/sri4all.nl"></script>
 </head>
 ```
+
 #### Usage
 Add css links
 ```html
@@ -97,7 +100,9 @@ The first thing we need to do is find out if your browser natively supports sub 
  You then want to inject the JavaScript for CSS checking just under the CSS tags ```<script>SRI4ALL.css();</script>``` in the ```<head>```
  and the JavaScript for JavaScript checking just under the script tags ```<script>SRI4ALL.js();</script>``` inside the ```<body>```
  
+ 
  ### full example 
+ 
  ```html
 <!doctype html>
 <html>

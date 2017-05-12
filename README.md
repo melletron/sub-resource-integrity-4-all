@@ -14,7 +14,7 @@ This package provides a way to start benefiting from sub resource integrity chec
 ```html
 <head>
 <!-- this is a good place -->
-<script src="dist/sri4all.nl"></script>
+<script src="dist/sri4all.min.js"></script>
 </head>
 ```
 
